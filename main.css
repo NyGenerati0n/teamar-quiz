@@ -2,7 +2,7 @@ body {
   color: #fd652d;
   font-family: "Jost", sans-serif;
 
-  font-size: clamp(2rem, 5vh, 3rem);
+  font-size: calc(clamp(4rem, 9vh, 6rem) / 2);
   background-color: #232323;
 
   user-select: none;
@@ -199,7 +199,7 @@ p {
   align-items: center;
   height: 100%;
   box-sizing: border-box;
-  padding: 50px;
+  padding: clamp(15px, 3vh, 50px);
 }
 
 /* Remove */
@@ -217,12 +217,12 @@ p {
 }
 
 .gwrapper {
-  margin: 100px;
+  margin: clamp(50px, 7vh, 100px);
   width: 70%;
   display: grid;
   grid-template-columns: 50% 50%;
   position: relative;
-  gap: 30px;
+  gap: clamp(10px, 5vh, 30px);
 }
 
 .roleresult-container {
@@ -239,24 +239,24 @@ p {
   background-color: #363636;
   position: absolute;
   display: flex;
-  padding: 30px;
+  padding: 0.5em;
   border-radius: 20px;
   box-shadow: 5px 5px 40px black;
-  left: -20px;
-  right: -20px;
+  left: -60px;
+  right: -100px;
   z-index: 10;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
 }
 
 .role-description img {
-  height: 400px;
+  height: 6.5em;
   border-radius: 5px;
   -webkit-user-drag: none;
 }
 
 .role-description span {
-  font-size: 1.4em;
+  font-size: .55em;
   padding: 0 30px;
 }
 
