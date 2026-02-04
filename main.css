@@ -2,7 +2,7 @@ body {
   color: #fd652d;
   font-family: "Jost", sans-serif;
 
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vh, 3rem);
   background-color: #232323;
 
   user-select: none;
@@ -270,6 +270,6 @@ p {
 
 
 /* Laptop-ish: mindre höjd + medelbredd */
-@media (max-width: 1600px) and (min-width: 901px) {
+/* @media (max-width: 1600px) and (min-width: 901px) {
   html { font-size: 10px; }
-}
+} */
