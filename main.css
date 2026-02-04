@@ -27,12 +27,13 @@ h1 {
   margin: 0;
   padding: 0;
   text-align: center;
+  font-size: 2em;
 }
 
 p {
   margin: 0;
   padding: 0;
-  font-size: 2rem;
+  font-size: .5em;
   text-align: center;
 }
 
@@ -161,7 +162,7 @@ p {
 #reset {
   display: flex;
   padding: 20px 30px;
-  font-size: 3rem;
+  font-size: 1em;
   margin: 20px;
   
   border-width: 5px;
@@ -172,13 +173,8 @@ p {
   display: block;
   text-align: center;
   width: 100%;
-  color: #fd652d;
-  font-size: 0;
-}
-
-#readmore span {
-  display: inline-block;
-  font-size: 3rem;
+  color: hsl(16, 98%, 58%);
+  font-size: .5em;
   text-decoration: underline;
 }
 
@@ -211,12 +207,12 @@ p {
 
 .roleresult {
   background-color: #fd652d;
-  height: 3.8rem;
+  height: 1.25em;
 }
 
 .rolename {
   padding: 15px;
-  font-size: 4rem;
+  font-size: 1.25em;
   cursor: pointer;
 }
 
@@ -260,7 +256,7 @@ p {
 }
 
 .role-description span {
-  font-size: 1.4rem;
+  font-size: 1.4em;
   padding: 0 30px;
 }
 
@@ -270,3 +266,10 @@ p {
 
 
 .hidden { display: none; }
+
+
+
+/* Laptop-ish: mindre höjd + medelbredd */
+@media (max-width: 1600px) and (min-width: 901px) {
+  html { font-size: 10px; }
+}
