@@ -161,11 +161,11 @@ p {
 
 #reset {
   display: flex;
-  padding: 20px 30px;
-  font-size: 1em;
+  padding: 10px 20px;
+  font-size: .9em;
   margin: 20px;
   
-  border-width: 5px;
+  border-width: 4px;
   margin-top: auto;
 }
 
@@ -174,7 +174,7 @@ p {
   text-align: center;
   width: 100%;
   color: hsl(16, 98%, 58%);
-  font-size: .5em;
+  font-size: .6em;
   text-decoration: underline;
 }
 
@@ -211,7 +211,8 @@ p {
 }
 
 .rolename {
-  padding: 15px;
+  padding: 0;
+  line-height: 1em;
   font-size: 1.25em;
   cursor: pointer;
 }
@@ -247,6 +248,7 @@ p {
   z-index: 10;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
+  align-items: center;
 }
 
 .role-description img {
@@ -257,16 +259,47 @@ p {
 
 .role-description span {
   font-size: .55em;
-  padding: 0 30px;
+  padding: 0 1.2em;
 }
-
-
-
-
 
 
 .hidden { display: none; }
 
+
+
+
+
+@media (max-width: 600px) {
+  .gwrapper {
+    position: relative;
+  }
+
+  .role-container {
+    position: static;
+  }
+
+  body {
+    font-size: 1.5rem;
+  }
+
+  .gwrapper {
+    gap: 15px 30px;
+  }
+
+  .rwrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .role-description {
+    left: -50px;
+    right: -50px;
+  }
+
+  .role-description span {
+    padding: 0 15px;
+  }
+}
 
 
 /* Laptop-ish: mindre höjd + medelbredd */
