@@ -2,9 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <link rel="stylesheet" href="main.css" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style-start.css" />
+    <link rel="stylesheet" href="css/style-result.css" />
+    <link rel="stylesheet" href="css/style-js.css" />
     <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -13,17 +17,17 @@
 
   <body>
     <main>
-      <div class="qwrapper hidden">
-        <div id="lefty" class="box"></div>
-        <div id="righty" class="box"></div>
-      </div>
-      <div class="swrapper hidden">
-        <div id="welcome" class="boxWelcome"><h1>Vilken roll är du?</h1></div>
-        <div id="startbutton" class="boxWelcome">
+      <div class="swrapper">
+        <h1> Vilken roll är du? </h1>
+        <div id="startbutton" class="button">
           Starta testet
         </div>
       </div>
-      <div class="rwrapper">
+      <div class="qwrapper hidden">
+        <div id="lefty" class="box button"></div>
+        <div id="righty" class="box button"></div>
+      </div>
+      <div class="rwrapper hidden">
         <h1> Resultat </h1>
         <p> Klicka på rollerna för att läsa mer </p>
         <div class="gwrapper">
@@ -75,7 +79,7 @@
             <div class="roleresult" id="roleresult-coach" style="width: 100%"></div>
           </div>
         </div>
-        <div id="reset" class="boxButton"> Starta om testet </div>
+        <div id="reset" class="button"> Starta om testet </div>
         <a href="https://www.nygeneration.se/teama" id="readmore" target="_blank">
           <!-- Läs mer och ansök till <wbr/> teamåret på NG -->
           Läs mer och ansök till teamåret på NG
