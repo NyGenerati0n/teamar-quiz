@@ -9,11 +9,26 @@
 }
 
 #startbutton {
-  width: 640px;
-  height: 100px;
+  width: clamp(240px, 25%, 410px);
+  padding: 1.5vw;
 }
 
 #startbutton:hover {
   background: #fd652d;
   color: #232323;
+}
+
+
+
+
+@media (max-width: 600px) {
+  #startbutton {
+    width: 50%;
+    padding: 4vw;
+    font-size: 6vw;
+  }
+
+  .swrapper h1 {
+    font-size: 11vw;
+  }
 }

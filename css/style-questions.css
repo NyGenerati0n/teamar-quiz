@@ -31,3 +31,26 @@
   background: #fd652d;
   color: #232323;
 }
+
+
+
+
+@media (max-width: 600px) {
+  .qwrapper {
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .box {
+    height: 35vw;
+    width: 35vw;
+    padding: 40px;
+  }
+
+  #lefty, #righty {
+    font-size: 6vw;
+    margin: 25px;
+    line-height: 7vw;
+  }
+}
