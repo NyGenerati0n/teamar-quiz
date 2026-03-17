@@ -5,31 +5,31 @@
   height: 100%;
   box-sizing: border-box;
   padding: clamp(15px, 3vh, 50px);
+  font-size: .75em;
 }
 
 .rwrapper h1 {
   margin: 0;
   padding: 0;
-  font-size: 2em;
+  font-size: 3em;
   text-align: center;
 }
 
 .rwrapper p {
   margin: 0;
   padding: 0;
-  font-size: .5em;
+  font-size: .65em;
   text-align: center;
 }
 
 
 
 #reset {
-  padding: 10px 20px;
-  font-size: .9em;
-  border-width: 4px;
-  
   margin: 20px;
   margin-top: auto;
+
+  width: clamp(240px, 25%, 410px);
+  padding: 1.5vw;
 }
 
 
@@ -38,8 +38,8 @@
   display: block;
   text-align: center;
   width: 100%;
-  color: hsl(16, 98%, 58%);
-  font-size: .6em;
+  color: #d45141;
+  font-size: .8em;
   text-decoration: underline;
 }
 
@@ -50,12 +50,11 @@
 
 
 .gwrapper {
-  margin: clamp(50px, 7vh, 100px);
   width: 70%;
   display: grid;
   grid-template-columns: 50% 50%;
   position: relative;
-  gap: clamp(10px, 5vh, 30px);
+  gap: 20px;
 }
 
 .roleresult-container {
@@ -64,8 +63,9 @@
 }
 
 .roleresult {
-  background-color: #fd652d;
-  height: 1.25em;
+  background-color: #d45141;
+  height: 1.6em;
+  margin: 10px;
 }
 
 
@@ -74,21 +74,25 @@
 }
 
 .rolename {
-  padding: 0;
+  padding: calc(clamp(10px, 2.22vh - 2.02px, 50px)) 0px;
   line-height: 1em;
-  font-size: 1.25em;
+  font-size: 1em;
   cursor: pointer;
+  border: 2px solid #d45141;
+  display: block;
+  margin: 10px;
+  /* width: fit-content; */
 }
 
 .role-description {
-  background-color: #363636;
+  background-color: #f2ebe9;
   position: absolute;
   display: flex;
   padding: 0.5em;
-  border-radius: 20px;
-  box-shadow: 5px 5px 40px black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
   left: -60px;
-  right: -100px;
+  right: -60px;
   z-index: 10;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
@@ -102,8 +106,27 @@
 }
 
 .role-description span {
-  font-size: .55em;
+  font-size: .6em;
   padding: 0 1.2em;
+}
+
+
+
+
+@media (max-width: 1440px) {
+  .rwrapper {
+    font-size: .8em;
+  }
+
+
+  .gwrapper {
+    gap: 10px;
+  }
+
+
+  .role-description span {
+    font-size: calc(.4em + .4vw);
+  }
 }
 
 
@@ -115,6 +138,13 @@
   }
 
 
+  #reset {
+    min-width: 50%;
+    padding: 4vw;
+    font-size: 6vw;
+  }
+
+
   .rwrapper {
     padding-left: 0;
     padding-right: 0;
@@ -122,7 +152,8 @@
 
   .gwrapper {
     position: relative;
-    gap: 15px 30px;
+    gap: 0px 15px;
+    width: 90%;
   }
 
   .role-container {
@@ -130,11 +161,16 @@
   }
 
   .role-description {
-    left: -50px;
-    right: -50px;
+    left: -10px;
+    right: -10px;
   }
 
   .role-description span {
     padding: 0 15px;
+    font-size: calc(.6em + .4vw);
+  }
+
+  .rwrapper p {
+    font-size: .75em;
   }
 }

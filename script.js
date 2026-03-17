@@ -14,10 +14,14 @@ const ELEMENTS = {
   ROLE_NAMES: $(".rolename"),
   ROLE_DESCRIPTIONS: $(".role-description"),
   DOCUMENT: $(document),
+  START_TITLE: $(".swrapper > h1"),
 }
+
+initFlimmerEffect(ELEMENTS.START_TITLE);
 
 ELEMENTS.DOCUMENT.on("click", e => hideRoleDescription(e));
 ELEMENTS.ROLE_NAMES.on("click", (e) => showRoleDescription(e));
+
 hideElement(ELEMENTS.ROLE_DESCRIPTIONS);
 
 ELEMENTS.LEFTY.on("click", () => handleClick("left"));
@@ -258,6 +262,9 @@ function hideRoleDescription(e) {
   roleDescriptionLastChange = Date.now();
 }
 
+
+
+
 // Handle clicking on the answered questions
 function handleClick(box) {
   if (box == "left") positions[track][questions[currentQuestion]["ltype"]]++;
@@ -340,4 +347,75 @@ function shuffleQuestions(original) {
     copy[random] = temp;
   }
   return copy;
+}
+
+
+
+
+
+function initFlimmerEffect(el) {
+  let getNextFlimmersAtATime = () => Math.ceil(Math.random() * 10);
+  let getNextFlimmer = () => Math.floor(Math.random() * 100 + 25)
+  let toggleOpacityEl = () => el.css("opacity", el.css("opacity") == "1"? "0" : "1");
+  let showEl = () => el.css("opacity", "1");
+  let resetAnimation = () => el.css("animation-name", "none");
+  let playAnimation = name => el.css("animation-name", name);
+
+  const ANIMATIONS = {
+    SHIFT: "shift-text",
+    SHADOW: "shadow-effect",
+  }
+  
+  
+  let animationPlayTime = parseFloat(el.css("animation-duration")) * 1000
+  let lastAnimationPlayedAt = Date.now();
+  let playingAnimation = false;
+
+  let flimmersAtATime = getNextFlimmersAtATime()
+  let flimmers = 0;
+
+
+
+  let timeBetweenFlimmers = getNextFlimmer();
+  let lastFlimmer = Date.now();
+  
+  function effectLoop() {
+    if(playingAnimation && Date.now() >= lastAnimationPlayedAt + animationPlayTime) {
+      playingAnimation = false;
+      resetAnimation();
+    }
+
+    if(Date.now() < timeBetweenFlimmers + lastFlimmer)
+      return requestAnimationFrame(effectLoop);
+
+    toggleOpacityEl();
+    lastFlimmer = Date.now();
+    timeBetweenFlimmers = getNextFlimmer();
+    flimmers++;
+
+
+    if(flimmers !== flimmersAtATime)
+      return requestAnimationFrame(effectLoop);
+
+    showEl();
+    timeBetweenFlimmers = getNextFlimmer() * 10;
+    flimmers = 0;
+    flimmersAtATime = getNextFlimmersAtATime();
+
+    if(Math.floor(Math.random() * 2) === 0){
+      playAnimation(ANIMATIONS.SHIFT);
+      playingAnimation = true;
+      lastAnimationPlayedAt = Date.now();
+    }
+
+    if(Math.floor(Math.random() * 8) === 0){
+      playAnimation(ANIMATIONS.SHADOW);
+      playingAnimation = true;
+      lastAnimationPlayedAt = Date.now();
+    }
+
+    requestAnimationFrame(effectLoop);
+  }
+
+  requestAnimationFrame(effectLoop);
 }

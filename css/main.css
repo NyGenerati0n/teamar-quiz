@@ -1,9 +1,9 @@
 body {
-  color: #fd652d;
+  color: #d45141;
   font-family: "Jost", sans-serif;
 
-  font-size: calc(clamp(4rem, 9vh, 6rem) / 2);
-  background-color: #232323;
+  font-size: calc(3.82vh + 3.056px);
+  background-color: #f2ebe9;
 
   user-select: none;
 }
@@ -23,6 +23,15 @@ main {
 }
 
 
+.flex-filler-1 {
+  flex-grow: 1;
+}
+
+.flex-filler-3 {
+  flex-grow: 3;
+}
+
+
 
 
 .button {
@@ -31,12 +40,17 @@ main {
   align-items: center;
 
   border-style: solid;
-  border-color: #fd652d;
+  border-color: #d45141;
   border-width: 3px;
+
+  --color: #d45141;
+  color: var(--color);
 
   text-align: center;
 }
 
 .button:hover {
   cursor: pointer;
+  background-color: #d45141;
+  --color: #f2ebe9;
 }
