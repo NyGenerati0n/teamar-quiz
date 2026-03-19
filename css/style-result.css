@@ -38,7 +38,7 @@
   display: block;
   text-align: center;
   width: 100%;
-  color: #d45141;
+  color: var(--primary-color);
   font-size: .8em;
   text-decoration: underline;
 }
@@ -63,7 +63,7 @@
 }
 
 .roleresult {
-  background-color: #d45141;
+  background-color: var(--primary-color);
   height: 1.6em;
   margin: 10px;
 }
@@ -78,14 +78,14 @@
   line-height: 1em;
   font-size: 1em;
   cursor: pointer;
-  border: 2px solid #d45141;
+  border: 2px solid var(--primary-color);
   display: block;
   margin: 10px;
   /* width: fit-content; */
 }
 
 .role-description {
-  background-color: #f2ebe9;
+  background-color: var(--background-color);
   position: absolute;
   display: flex;
   padding: 0.5em;
