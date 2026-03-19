@@ -14,14 +14,21 @@ const ELEMENTS = {
   ROLE_NAMES: $(".rolename"),
   ROLE_DESCRIPTIONS: $(".role-description"),
   DOCUMENT: $(document),
+  START_TITLE: $(".swrapper > h1"),
 }
 
+let platingEffects = false;
+let shouldStopEffects = false;
+initFlimmerEffect(ELEMENTS.START_TITLE);
+
 ELEMENTS.DOCUMENT.on("click", e => hideRoleDescription(e));
-ELEMENTS.ROLE_NAMES.on("click", (e) => showRoleDescription(e));
+ELEMENTS.ROLE_NAMES.on("click", e => showRoleDescription(e));
+
 hideElement(ELEMENTS.ROLE_DESCRIPTIONS);
 
 ELEMENTS.LEFTY.on("click", () => handleClick("left"));
 ELEMENTS.RIGHTY.on("click", () => handleClick("right"));
+
 ELEMENTS.START_BUTTON.on("click", () => startQuestions());
 ELEMENTS.RESET_BUTTON.on("click", () => resetQuiz());
 
@@ -209,21 +216,37 @@ function showElement(jqEl) {
   jqEl.removeClass(CLASS.HIDE);
 }
 
-function showRoleDescription(e) {
-  if(currentOpenDescription) return;
+function wait(milliseconds) {
+  return new Promise(res => {
+    setTimeout(res, milliseconds);
+  })
+}
+
+async function showRoleDescription(e) {
+  let lastOpen = null;
+  if(currentOpenDescription) {
+    lastOpen = currentOpenDescription
+    await hideRoleDescription(e);
+    await wait(50);
+  }
+  
   if(Date.now() < roleDescriptionLastChange + roleDescriptionCooldown)
     return;
 
-  console.log("show")
 
   const sourceEl = e.originalEvent.srcElement;
   const descriptionEl = $(sourceEl.parentNode).find(".role-description")[0];
-  console.log(sourceEl, descriptionEl);
+
+
+  if(lastOpen && descriptionEl.isSameNode(lastOpen)) {
+    console.log("Click on same button as already opened, not showing");
+    return;
+  }
 
   showElement($(descriptionEl))
   setTimeout(() => {
     descriptionEl.style.opacity = 1;
-  }, 0)
+  }, 5)
 
   
   currentOpenDescription = descriptionEl;
@@ -232,31 +255,34 @@ function showRoleDescription(e) {
 
 
 function hideRoleDescription(e) {
-  if(!currentOpenDescription) return;
-  if(Date.now() < roleDescriptionLastChange + roleDescriptionCooldown) return;
+  return new Promise((resolve, reject) => {
+    if(!currentOpenDescription) return;
+    if(Date.now() < roleDescriptionLastChange + roleDescriptionCooldown) return;
+    
+    
+    const sourceEl = e.originalEvent.srcElement;
+    console.log(ELEMENTS.ROLE_DESCRIPTIONS, sourceEl)
+    console.log(ELEMENTS.ROLE_DESCRIPTIONS.has(sourceEl))
+  
+    if(ELEMENTS.ROLE_DESCRIPTIONS.has(sourceEl).length) {
+      return;
+    }
   
   
-  const sourceEl = e.originalEvent.srcElement;
-  console.log(ELEMENTS.ROLE_DESCRIPTIONS, sourceEl)
-  console.log(ELEMENTS.ROLE_DESCRIPTIONS.has(sourceEl))
-
-  if(ELEMENTS.ROLE_DESCRIPTIONS.has(sourceEl).length) {
-    console.log("click on description, not closing")
-    return;
-  }
-
-  console.log("hide")
-
-
-  currentOpenDescription.style.opacity = 0;
-  setTimeout(() => {
-    hideElement($(currentOpenDescription));
-    currentOpenDescription = null;
-    console.log("display: none")
-
-  }, roleDescriptionCooldown);
-  roleDescriptionLastChange = Date.now();
+  
+    currentOpenDescription.style.opacity = 0;
+    setTimeout(() => {
+      hideElement($(currentOpenDescription));
+      currentOpenDescription = null;
+      resolve();
+  
+    }, roleDescriptionCooldown);
+    roleDescriptionLastChange = Date.now();
+  })
 }
+
+
+
 
 // Handle clicking on the answered questions
 function handleClick(box) {
@@ -300,6 +326,10 @@ function resetQuiz() {
   hideElement(ELEMENTS.RESULT_WRAPPER);
 
   showElement(ELEMENTS.START_WRAPPER);
+
+  shouldStopEffects = false;
+  initFlimmerEffect(ELEMENTS.START_TITLE);
+
   for(let key in positions[track]) {
     if (key == "undefined") continue;
 
@@ -319,6 +349,7 @@ function resetQuiz() {
 function startQuestions() {
   console.log("In startQuestions");
   hideElement(ELEMENTS.START_WRAPPER);
+  shouldStopEffects = true;
 
   // firstQuestion = true;
   // var firstQL = "Vilken(Turné)";
@@ -340,4 +371,85 @@ function shuffleQuestions(original) {
     copy[random] = temp;
   }
   return copy;
+}
+
+
+
+
+
+function initFlimmerEffect(el) {
+  if(platingEffects) return;
+
+  let getNextFlimmersAtATime = () => Math.ceil(Math.random() * 10);
+  let getNextFlimmer = () => Math.floor(Math.random() * 100 + 25)
+  let toggleOpacityEl = () => el.css("opacity", el.css("opacity") == "1"? "0" : "1");
+  let showEl = () => el.css("opacity", "1");
+  let resetAnimation = () => el.css("animation-name", "none");
+  let playAnimation = name => el.css("animation-name", name);
+
+  const ANIMATIONS = {
+    SHIFT: "shift-text",
+    SHADOW: "shadow-effect",
+  }
+
+
+  
+  let animationPlayTime = parseFloat(el.css("animation-duration")) * 1000
+  let lastAnimationPlayedAt = Date.now();
+  let playingAnimation = false;
+  
+  let flimmersAtATime = getNextFlimmersAtATime()
+  let flimmers = 0;
+  
+
+  let timeBetweenFlimmers = getNextFlimmer();
+  let lastFlimmer = Date.now();
+  
+
+  platingEffects = true;
+  
+  function effectLoop() {
+    if(shouldStopEffects) {
+      platingEffects = false;
+      resetAnimation();
+      return;
+    }
+    if(playingAnimation && Date.now() >= lastAnimationPlayedAt + animationPlayTime) {
+      playingAnimation = false;
+      resetAnimation();
+    }
+
+    if(Date.now() < timeBetweenFlimmers + lastFlimmer)
+      return requestAnimationFrame(effectLoop);
+
+    toggleOpacityEl();
+    lastFlimmer = Date.now();
+    timeBetweenFlimmers = getNextFlimmer();
+    flimmers++;
+
+
+    if(flimmers !== flimmersAtATime)
+      return requestAnimationFrame(effectLoop);
+
+    showEl();
+    timeBetweenFlimmers = getNextFlimmer() * 10;
+    flimmers = 0;
+    flimmersAtATime = getNextFlimmersAtATime();
+
+    if(Math.floor(Math.random() * 2) === 0){
+      playAnimation(ANIMATIONS.SHIFT);
+      playingAnimation = true;
+      lastAnimationPlayedAt = Date.now();
+    }
+
+    if(Math.floor(Math.random() * 8) === 0){
+      playAnimation(ANIMATIONS.SHADOW);
+      playingAnimation = true;
+      lastAnimationPlayedAt = Date.now();
+    }
+
+    requestAnimationFrame(effectLoop);
+  }
+
+  requestAnimationFrame(effectLoop);
 }

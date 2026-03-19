@@ -2,8 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <link rel="stylesheet" href="main.css" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style-start.css" />
+    <link rel="stylesheet" href="css/style-questions.css" />
+    <link rel="stylesheet" href="css/style-result.css" />
+    <link rel="stylesheet" href="css/style-js.css" />
     <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -12,22 +18,25 @@
 
   <body>
     <main>
-      <div class="qwrapper hidden">
-        <div id="lefty" class="box"></div>
-        <div id="righty" class="box"></div>
-      </div>
-      <div class="swrapper hidden">
-        <div id="welcome" class="boxWelcome"><h1>Vilken roll är du?</h1></div>
-        <div id="startbutton" class="boxWelcome">
-          Starta testet
+      <div class="swrapper">
+        <h1> Vilken roll är du? </h1>
+        <div id="startbutton" class="button">
+          <span>
+            STARTA TESTET
+          </span>
         </div>
       </div>
-      <div class="rwrapper">
+      <div class="qwrapper hidden">
+        <div id="lefty" class="box button"></div>
+        <div id="righty" class="box button"></div>
+      </div>
+      <div class="rwrapper hidden">
         <h1> Resultat </h1>
         <p> Klicka på rollerna för att läsa mer </p>
+        <div class="flex-filler-1"></div>
         <div class="gwrapper">
           <div class="role-container">
-            <span class="rolename"> CREW </span>
+            <span class="rolename button"> CREW </span>
             <div class="role-description">
               <img src="img/crew.gif" alt="">
               <span>
@@ -42,7 +51,7 @@
             <div class="roleresult" id="roleresult-crew" style="width: 25%"></div>
           </div>
           <div class="role-container">
-            <span class="rolename"> CONTENT CREATOR </span>
+            <span class="rolename button"> CONTENT CREATOR </span>
             <div class="role-description">
               <img src="img/content.gif" alt="">
               <span>
@@ -58,7 +67,7 @@
             <div class="roleresult" id="roleresult-content" style="width: 50%"></div>
           </div>
           <div class="role-container">
-            <span class="rolename"> COACH </span>
+            <span class="rolename button"> COACH </span>
             <div class="role-description">
               <img src="img/coach.gif" alt="">
               <span>
@@ -74,11 +83,13 @@
             <div class="roleresult" id="roleresult-coach" style="width: 100%"></div>
           </div>
         </div>
-        <div id="reset" class="boxButton"> Starta om testet </div>
+        <div class="flex-filler-3"></div>
+        <div id="reset" class="button"> STARTA OM TESTET </div>
         <a href="https://www.nygeneration.se/teama" id="readmore" target="_blank">
           <!-- Läs mer och ansök till <wbr/> teamåret på NG -->
-          Läs mer och ansök till teamåret på NG
+          Läs mer och ansök till teamåret
         </a>
+        <div class="flex-filler-1"></div>
       </div>
     </main>
   </body>

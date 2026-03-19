@@ -1,0 +1,102 @@
+.swrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Jost", sans-serif;
+}
+
+#startbutton {
+  width: clamp(240px, 25%, 410px);
+  padding: 1.5vw;
+}
+
+#startbutton * {
+  animation: color-change 8s infinite;
+}
+
+.swrapper > h1 {
+  animation: shadow-effect .6s;
+  transition: opacity .04s linear;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+@keyframes color-change {
+  0%, 3% {
+    color: #00d4ff;
+  }
+  1%, 5% {
+    color: #ff005e;
+  }
+  7% {
+    color: var(--color);
+  }
+
+  20%, 25%, 53%, 53.5% {
+    color: #00d4ff;
+  }
+
+  30%, 53.6%, 53.9% {
+    color: #ff005e;
+  }
+
+  19.9%, 23%, 24.9%, 27%, 31%, 52.9%, 54%, 69.9% {
+    color: var(--color);
+  }
+
+  70% {
+    color: #ff005e;
+  }
+
+  73% {
+    color: var(--color);
+  }
+
+
+  25.9%, 27%, 49.9%, 51%, 52.9%, 55%, 56.9%, 57.5% {
+    transform: translate(0) skew(0);
+  }
+
+  26%, 26.9%, 50%, 50.9%, 53%, 54.9%, 57%, 57.4% {
+    transform: translate(-2px) skew(5deg);
+  }
+
+}
+
+
+
+@keyframes shadow-effect {
+  0%, 100% {
+    text-shadow: #00d4ff 0 0 2px, #ff005e 0 0 2px;
+  }
+  70% {
+    text-shadow: #00d4ff -5px -5px 2px, #ff005e -10px -10px 2px;
+  }
+}
+
+@keyframes shift-text {
+  0%, 5%, 9%, 20%, 25%, 77%, 82%, 100% {
+    transform: translate(0);
+  }
+
+  7%, 23%, 79% {
+    transform: translate(-10px) skew(10deg);
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  #startbutton {
+    width: 50%;
+    padding: 4vw;
+    font-size: 6vw;
+  }
+
+  .swrapper h1 {
+    font-size: 11vw;
+  }
+}
