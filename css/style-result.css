@@ -71,7 +71,7 @@
 
 
 .role-container {
-  position: relative;
+  position: static;
 }
 
 .rolename {
@@ -101,7 +101,7 @@
 }
 
 .role-description img {
-  height: 6.5em;
+  height: 15em;
   border-radius: 5px;
   -webkit-user-drag: none;
 }
@@ -126,7 +126,16 @@
 
 
   .role-description span {
-    font-size: calc(.4em + .4vw);
+    font-size: calc(.8em + .7vw);
+    font-weight: 400;
+    letter-spacing: 3px;
+  }
+
+  .role-description {
+    padding: 20px 30px;
+    top: -40px;
+    left: -50px;
+    right: -50px;
   }
 }
 
