@@ -2,12 +2,12 @@
 Det här projektet innehåller koden till teamårs-testet som bland annat används på montringar. 
 
 ## Utveckling
-Du kan utveckla testet på branchen `dev` och kan testat lokalt i live-preview i vs code. 
+När du utvecklar testet så gör det på branchen `dev` och testa testat lokalt i live-preview i vs code. 
 
 ## Branchen `static-tv-specific`
-Denna branch innehåller kod som är optimerad för en tjock-tv och kan användas i samband med en tjock-tv på montringarna. 
+Den här branch innehåller kod som är ändrad för att testet ska se bra ut på en tjock-tv och kan användas när man vill visa testet på en tjock-tv i montern. 
 
-Denna version av koden måste laddas ned och köras lokalt. Du startar en server med kommandot `python3 -m http.server 3030` och kan sedan gå in på länken `localhost:3030`. 
+Den versionen av koden måste laddas ned och köras lokalt. Du startar en server med kommandot `python3 -m http.server 3030` och kan sedan gå in på länken `localhost:3030`. 
 
 ## Utveckling och `git`
 För att ladda upp koden till github brukar man använda programmet `git`. Om du inte vet hur det fungerar rekomenderar jag dig att lära dig grunderna för det underlättar mycket när man uppdaterar koden. Du kan också använda text-redigerare som `vscode` eller liknande för att underlätta när du kodar och `vscode` har ett inbyggt system för att hantera git kommandon. 
