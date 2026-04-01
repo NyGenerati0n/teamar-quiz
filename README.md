@@ -1,5 +1,5 @@
 # Teamar Testet Ny Generation
-Det här projektet innehåller koden till teamårs-testet som bland annat används på montringar. Projektet innehåller 3 versioner av testet som ligger ute på [`/`](https://nygenerati0n.github.io/teamar-quiz/), [`/monter/`](https://nygenerati0n.github.io/teamar-quiz/monter) och [`/monter-oldtv/`](https://nygenerati0n.github.io/teamar-quiz/). Sökvägarna lägg till efter projektets url: 
+Det här projektet innehåller koden till teamårs-testet som bland annat används på montringar. Projektet innehåller 3 versioner av testet som ligger ute på [`/`](https://nygenerati0n.github.io/teamar-quiz/), [`/monter/`](https://nygenerati0n.github.io/teamar-quiz/monter) och [`/monter-oldtv/`](https://nygenerati0n.github.io/teamar-quiz/monter-oldtv). Sökvägarna lägg till efter projektets url: 
 
 `https://nygenerati0n.github.io/teamar-quiz/`
 
