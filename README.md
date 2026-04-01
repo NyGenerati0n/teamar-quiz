@@ -12,7 +12,7 @@ Du kan skapa en ny version genom att skapa en ny mapp (namnet på mappen bestäm
 När du `länkar css` behöver du länka till versionens css filer `efter` att du länkar till `root` filen. 
 
 ## Versionen Monter-oldtv
-Denna version av testet är designat och anpassat utefter en tjock-tv. Färgerna kan behöva schysteras för olika tv-apparater och förändringarna är bara aktiva för medelstora skärmar (mellan 1440 och 600 i bredd)
+Denna version av testet är designat och anpassat utefter en tjock-tv. Färgerna kan behöva schysteras för olika tv-apparater och förändringarna är bara aktiva för medelstora skärmar (mellan 1440 och 600 i bredd).
 
 
 # Grundläggande förändring (`Ändra färg`)
