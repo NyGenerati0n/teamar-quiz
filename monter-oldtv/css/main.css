@@ -1,0 +1,7 @@
+/*
+This file adds/changes styles from the main.css file in the root direktory
+*/
+
+body {
+  --primary-color: #cc3d06;
+}

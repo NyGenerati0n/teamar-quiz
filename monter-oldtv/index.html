@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" /> <!-- Overrides some styles from the main.css file in root directory -->
+    <link rel="stylesheet" href="/css/style-start.css" />
+    <link rel="stylesheet" href="/css/style-questions.css" />
+    <link rel="stylesheet" href="/css/style-result.css" />
+    <link rel="stylesheet" href="./css/style-result.css" /> <!-- Overrides and adds some styles from/to the style-result.css file in root directory -->
+    <link rel="stylesheet" href="/css/style-js.css" />
+
+
+    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <div class="swrapper">
+        <h1> Vilken roll är du? </h1>
+        <div id="startbutton" class="button">
+          <span>
+            STARTA TESTET
+          </span>
+        </div>
+      </div>
+      <div class="qwrapper hidden">
+        <div id="lefty" class="box button"></div>
+        <div id="righty" class="box button"></div>
+      </div>
+      <div class="rwrapper hidden">
+        <h1> Resultat </h1>
+        <div class="flex-filler-1"></div>
+        <div class="gwrapper">
+          <div class="role-container">
+            <span class="rolename button"> CREW </span>
+            <div class="role-description">
+              <img src="/img/crew.gif" alt="">
+              <span>
+                Om du gillar att jobba bakom kulisserna är crew-rollen något för dig. 
+                Du kommer ha en central roll i hur Ny Generation jobbar med event av olika slag. 
+                Här kommer du få lära dig och utvecklas i hela arbetsprocessen: från idéfas till färdig slutproduktion. 
+                Kom och använd dina praktiska gåvor för att bygga, producera, och koordinera till Guds ära.
+              </span>
+            </div>
+          </div>
+          <div class="roleresult-container">
+            <div class="roleresult" id="roleresult-crew" style="width: 25%"></div>
+          </div>
+          <div class="role-container">
+            <span class="rolename button"> CONTENT CREATOR </span>
+            <div class="role-description">
+              <img src="/img/content.gif" alt="">
+              <span>
+                Content Creator är för dig som taggas igång av tilltalande budskap, 
+                snygg paketering och kreativt skapande i olika former. Som content creator 
+                kan du förvänta dig en vardag med fokus på att inspirera kristna ungdomar genom olika 
+                kommunikationskanaler; allt från fysiska utskick till content på sociala medier. 
+                Vi vill tro att Gud kan tala även genom det estetiska. 
+              </span>
+            </div>
+          </div>
+          <div class="roleresult-container">
+            <div class="roleresult" id="roleresult-content" style="width: 50%"></div>
+          </div>
+          <div class="role-container">
+            <span class="rolename button"> COACH </span>
+            <div class="role-description">
+              <img src="/img/coach.gif" alt="">
+              <span>
+                Som coach kommer du att ha den närmsta kontakten med NG-grupperna ute i landet. 
+                Du är den som möter dem ansikte mot ansikte, reser i hela Sverige, skickar sms, 
+                förbereder andakter - detta i syfte att finnas som en uppmuntrande röst i deras skolvardag. 
+                I rollen som coach kan du förvänta dig en varierad vardag, många nya platser att besöka och 
+                massa häng med ungdomar i kyrk-Sverige. 
+              </span>
+            </div>
+          </div>
+          <div class="roleresult-container">
+            <div class="roleresult" id="roleresult-coach" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="flex-filler-3"></div>
+        <div id="reset" class="button"> STARTA OM TESTET </div>
+        <div class="flex-filler-2"></div>
+      </div>
+    </main>
+  </body>
+</html>

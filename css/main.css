@@ -29,6 +29,10 @@ main {
   flex-grow: 1;
 }
 
+.flex-filler-2 {
+  flex-grow: 2;
+}
+
 .flex-filler-3 {
   flex-grow: 3;
 }
