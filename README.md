@@ -3,6 +3,8 @@ Det här projektet innehåller koden till teamårs-testet som bland annat använ
 
 `https://nygenerati0n.github.io/teamar-quiz/`
 
+Testet är publicerat med hjälp av github pages och så fort man laddar upp en ändring i branchen main så uppdateras hemsidan automatiskt. 
+
 
 # Projektstruktur
 De olika versionerna finns i samma map som sökvägen visar. Standard-versionen ligger i `root` ( `/` ) och alla andra versioner `bygger på den`, vilket innebär att de använder `css` och `bilder` från standard-versionen. Varje version innehåller även egen `css` som skriver över eller lägger till ny styling utöver basstylingen. 
